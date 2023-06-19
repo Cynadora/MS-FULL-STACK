@@ -54,7 +54,7 @@ DELETE FROM commande
 WHERE etat = 'livrée';
 
 
-3--/////Ecrivez un script sql permettant d'ajouter une nouvelle catégorie et un plat dans cette nouvelle catégorie.
+3--Ecrivez un script sql permettant d'ajouter une nouvelle catégorie et un plat dans cette nouvelle catégorie.
 INSERT INTO categorie (libelle, image, active)
 VALUES ('Kebab', 'kebab.jpg', 'Yes');
 
