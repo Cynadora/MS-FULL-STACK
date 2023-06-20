@@ -1,47 +1,47 @@
 <?php
-// on importe le contenu du fichier "db.php"
+// on importe le contenu du fichier "DAO.php"
 
-include ('DAO.php');
-
-// on clôt la requête en BDD
+include('DAO.php');
 include_once "Template/header.php";
 ?>
-
-
-
 <form action="categorie.php" method="GET">
     <input type="text" name="recherche" placeholder="Recherche..." />
     <input type="submit" value="Search" />
 </form>
-
-
-
 <div class="img1"></div>
-
 <h3>CATEGORIES</h3>
-<?php
-//Pour appeler la requête
-$categories = categorie_populaire();
+<div class="row g-3">
+    <?php
+    $categories = categorie_populaire();
+/* Vérifie si la variable '$categories' n'est pas vide Si la variable n'est pas vide, le  code à l'intérieur des accolades sera exécuté */      
+                                                      
+    if (!empty($categories)) {
+        foreach ($categories as $categorie):
+            ?>
+            <div class="col-4">
+                <div class="d-flex justify-content-center">
+                    <button class="plat1 position-relative z-2">
+                        <?= $categorie['libelle'] ?>
+                    </button>
+                </div>
+                <img src="src/img/category/<?= $categorie['image'] ?>" alt="Categorie <?= $categorie['libelle'] ?>"
+                    class="img2">
+            </div>
+      
 
-if (!empty($categories)) {
-    foreach ($categories as $categorie):
-        ?>
-        <div>
-            <img  src="src/img/category/<?= $categorie['image'] ?>" alt="Categorie <?= $categorie['libelle'] ?>" class="img2">
-        </div>
 
+        <?php endforeach;
+    }
+  
+    ?>
 
-        <?php
-    endforeach;
-}
-?>
+<h3>LES PLATS LES PLUS EN VOG</h3>
 
 
 
 
 
-<br><br><br><br><br><br><br><br><br><br>
 
-<?php
-include_once "Template/footer.php";
-?>
+    <?php
+    include_once "Template/footer.php";
+    ?>
