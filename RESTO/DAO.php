@@ -13,8 +13,8 @@ FROM categorie
 JOIN plat ON plat.id=plat.id_categorie
 JOIN commande ON plat.id=commande.id_plat
 GROUP BY categorie.libelle 
-ORDER BY SUM(`quantite`),categorie.id DESC LIMIT 6
-";
+ORDER BY SUM(`quantite`),categorie.id DESC LIMIT 6";
+
 
     $temp = $db->prepare($requeteCategories);
     $temp->execute();
@@ -34,7 +34,7 @@ function plats_plus_vendus()
     JOIN commande ON plat.id = commande.id_plat
     GROUP BY plat.id
     ORDER BY COUNT(commande.id_plat) 
-    DESC  LIMIT 1";
+    DESC  LIMIT 3";
                            
 
     $temp = $db->prepare($requetePlats);

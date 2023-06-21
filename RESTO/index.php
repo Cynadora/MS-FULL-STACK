@@ -1,6 +1,5 @@
 <?php
 // on importe le contenu du fichier "DAO.php"
-
 include('DAO.php');
 include_once "Template/header.php";
 ?>
@@ -35,9 +34,31 @@ include_once "Template/header.php";
   
     ?>
 
-<h3>LES PLATS LES PLUS EN VOG</h3>
+<h3>LES PLATS LES PLUS EN VOGUE</h3>
+
+<div class="row g-3">
+    <?php
+    $plats = plats_plus_vendus();
+
+    if (!empty($plats)) {
+        foreach ($plats as $plat):
+            ?>
+            <div class="col-4">
+                <div class="d-flex justify-content-center">
 
 
+                    <button class="plat1 position-relative z-2">
+
+                        <?= $plat['libelle'] ?>
+                    </button>
+                </div>
+                <img src="src/img/food/<?= $plat['image'] ?>" alt="plat <?= $plat['libelle'] ?>"
+                    class="img3">
+            </div>
+        <?php endforeach;
+    }
+    ?>
+</div>
 
 
 
