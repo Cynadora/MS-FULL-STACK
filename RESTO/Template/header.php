@@ -17,8 +17,7 @@
 
   <nav class="navbar navbar-expand-md navbar couleurnav">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -28,16 +27,13 @@
             <img class="logo1" src="src/img/the_district_brand/logo_transparent.png" alt="Logo" title="thedistrict">
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Accueil</a>
+            <a class="nav-link" href="index.php">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Catégorie</a>
+            <a class="nav-link" href="categorie.php">Catégorie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Plats</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
         </ul>
       </div>
@@ -52,4 +48,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
  -->
 
-<!-- </body> -->
+  <!-- </body> -->

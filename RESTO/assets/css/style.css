@@ -1,5 +1,9 @@
-body{
-    background-color: rgb(12, 12, 11);
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(35, 35, 33);
     color: aliceblue;
 }
 
@@ -10,7 +14,8 @@ body{
 }
 
 /*Couleur police de la navbar*/
-.nav-link{    color: aliceblue;
+.nav-link {
+    color: aliceblue;
 }
 
 
@@ -39,9 +44,9 @@ h3 {
     height: 20em;
     width: 100%;
     border-radius: 10%;
-/* Image Catégorie /Contour*/
+    /* Image Catégorie /Contour*/
     float: left;
-    box-shadow: -4px 4px 0 1px rgb(68, 70, 70);
+    box-shadow: -4px 4px 0 1px rgb(145, 147, 145);
 
 }
 
@@ -58,7 +63,7 @@ h3 {
     height: 15em;
     width: 100%;
     border-radius: 20%;
-/* Image Plats /Contour*/
+    /* Image Plats /Contour*/
     float: right;
     box-shadow: -4px 4px 0 1px rgb(68, 70, 70);
 
@@ -70,28 +75,46 @@ h3 {
     transition: 0.06s ease-in-out;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* Bouton Catégorie */
+/* Bouton Catégorie (Salade/Sandwich...)*/
 .plat1 {
+    display: flex;
+    align-items: center;
     color: black;
     background-color: #eaedee;
-    height: 40px;
-    text-align: center;
+    border-radius: 20%;
+    height: 50px;
+    justify-content: center;
     top: 10px;
-/* Bouton Catégorie /Contour*/
+    /* Bouton Catégorie /Contour*/
     float: right;
-    box-shadow: -4px 4px 0 1px rgb(70, 69, 70);
+    box-shadow: -4px 4px 0 1px rgb(88, 86, 88);
+}
+
+
+/* Bouton Suivant et Précédent de la page categorie 
+.button {
+    background:    #ede2c0;
+    border-radius: 10px;
+    box-shadow:    9px -9px #444444;
+    padding:       20px 45px;
+    color:         #282424;
+    display:       inline-block;
+    font:          normal bold 26px/1 "Open Sans", sans-serif;
+    text-align:    center;
+    }*/
+
+
+
+/* Bouton Suivant et Précédent de la page categorie */
+.button {
+    background: #b0e0eb;
+    border-radius: 8px;
+    box-shadow: 4px -4px #c5e0e6;
+    padding: 20px 45px;
+    color: #131414;
+    display: inline-block;
+    font: normal bold 11px/1 "Open Sans", sans-serif;
+    text-align: center;
 }
 
 
@@ -114,7 +137,7 @@ h3 {
     box-shadow: 0px 0px 5px black;
 }
 
-a:hover{
+.btn-nav:hover {
     transform: scale(1.2);
     border-radius: 5px 50px 5px;
 }
@@ -129,7 +152,7 @@ i {
 }
 
 
-a:hover i {
+.btn-nav:hover i {
     color: aliceblue;
     animation: bounce 0.5s ease-in-out;
 }
