@@ -33,13 +33,9 @@ $offset = ($page - 1) * $limit;
 
 $plats = plat_par_categorie($offset, $limit, $id);
 
-
-
-
 ?>
 <div class="container">
-    <div class="row">
-
+    <div class="row w-100 mb-5">
         <?php
         /* Vérifie si la variable '$categories' n'est pas vide Si la variable n'est pas vide, le  code à l'intérieur des accolades sera exécuté */
         if (!empty($plats)) {
@@ -52,23 +48,22 @@ $plats = plat_par_categorie($offset, $limit, $id);
                         </a>
                     </div>
                     <img src="src/img/food/<?= $plat['image'] ?>" alt="Categorie <?= $plat['libelle'] ?> <?= $plat['description'] ?> <?= $plat['prix'] ?> " class="img2">
+
                 </div>
-
-
             <?php endforeach; ?>
-
-    </div>
-    <div class="col-12">
-        <div class="row">
-            <a class="btn-nav col-6 button" href="?page=<?= $page - 1 ?>">Précédent</a>
-            <a class="btn-nav col-6 button" href="?page=<?= $page + 1 ?>">Suivant</a>
-        </div>
+        <?php
+        }
+        ?>
     </div>
 </div>
+<div class="col-12">
+    <div class="row">
+        <a class="btn-nav col-6 button" href="?page=<?= $page - 1 ?>">Précédent</a>
+        <a class="btn-nav col-6 button" href="?page=<?= $page + 1 ?>">Suivant</a>
+    </div>
 </div>
 
 <?php
-        }
-        include_once "Template/footer.php";
+include_once "Template/footer.php";
 
 ?>

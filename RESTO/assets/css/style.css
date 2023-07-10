@@ -3,19 +3,26 @@ html {
 }
 
 body {
-    background-color: rgb(35, 35, 33);
+    background-color: rgb(10, 10, 9);
     color: aliceblue;
 }
 
 
 .couleurnav {
 
-    background-color: rgb(64, 63, 62);
+    background-color: rgb(65, 65, 63);
 }
 
 /*Couleur police de la navbar*/
 .nav-link {
     color: aliceblue;
+}
+
+/*Hoover link/////////////////////////// de la navbar*/
+.nav-link:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    transition: 0.06s ease-in-out;
 }
 
 
@@ -30,22 +37,25 @@ h3 {
 
 /*Image principale*/
 .img1 {
+    display: flex;
     height: 300px;
     width: 100%;
     background-image: url("../../src/img/bg2.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    align-items: center;
+    justify-content: center;
 }
-
 
 /* Image Catégorie /Dimension et arrondi*/
 .img2 {
-    height: 20em;
+    /*height: 20em;*/
+    height: 300px;
     width: 100%;
     border-radius: 10%;
     /* Image Catégorie /Contour*/
-    float: left;
+    /*float: left;*/
     box-shadow: -4px 4px 0 1px rgb(145, 147, 145);
 
 }
@@ -90,21 +100,6 @@ h3 {
     box-shadow: -4px 4px 0 1px rgb(88, 86, 88);
 }
 
-
-/* Bouton Suivant et Précédent de la page categorie 
-.button {
-    background:    #ede2c0;
-    border-radius: 10px;
-    box-shadow:    9px -9px #444444;
-    padding:       20px 45px;
-    color:         #282424;
-    display:       inline-block;
-    font:          normal bold 26px/1 "Open Sans", sans-serif;
-    text-align:    center;
-    }*/
-
-
-
 /* Bouton Suivant et Précédent de la page categorie */
 .button {
     background: #b0e0eb;
@@ -120,7 +115,140 @@ h3 {
 
 
 
+/* Récupération des plats page commande */
 
+.tailleimg {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.fondplat {
+    background: linear-gradient(145deg, rgba(115, 72, 42, 1) 0%, rgba(162, 81, 48, 1) 100%);
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 20px;
+
+}
+
+.commandes-form {
+    background-color: #2cced2;
+    margin-top: 10px;
+}
+
+.commander {
+    /*background-color: #524A3A;*/
+    color: #FFFAE1;
+    padding: 20px 0 10px 0;
+    margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.txta {
+    border: none;
+    width: 25%;
+    padding: 15px 10px;
+    margin: 1px 0;
+    font-size: 1.2em;
+    font-family: "Advent Pro", sans-serif;
+    border-radius: 8px;
+    height: 70;
+}
+
+
+/* Formulaire page commande */
+
+.mailtel2,
+.tel,
+.nameprenom {
+    border: none;
+    padding: 15px 10px;
+    margin: 5px 0;
+    font-size: 1.2em;
+    border-radius: 7px;
+}
+
+.adr {
+    display: flex;
+    align-items: center;
+    border: none;
+
+    padding: 15px 10px;
+    margin: 1px 0;
+    font-size: 1.2em;
+    font-family: "Advent Pro", sans-serif;
+    border-radius: 20px;
+}
+
+#premierTrait {
+    height: 1px;
+    width: 75%;
+    background-color: #f008b6;
+    margin: 60px auto;
+}
+
+#deuxiemeTrait {
+    height: 1px;
+    width: 75%;
+    background-color: #da0aed;
+}
+
+#troisiemeTrait{
+    height: 1px;
+    width: 75%;
+    background-color: #da0aed;
+}
+
+
+
+.cpte {
+    border-radius: 8px;
+    width: 60px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+.buttonbtn {
+    margin-top: 10px;
+}
+
+.btnenvoyer {
+    font-size: 1.5em;
+    background-color: #FFFAE1;
+    border-radius: 10%;
+    height: 30px;
+    width: 48%;
+}
+
+.btnenvoyer:hover {
+    background-color: #767474ea;
+    color: #FFFAE1;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#copyrightEtIcons {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 0 10%;
+}
+
+#copyright {
+    width: 50%;
+    text-align: left;
+    color: rgb(7, 26, 234);
+}
 
 /* Réseaux Sociaux */
 .fab {
@@ -151,11 +279,10 @@ i {
     transition: 0.2s ease-in-out;
 }
 
-
 .btn-nav:hover i {
     color: aliceblue;
     animation: bounce 0.5s ease-in-out;
-}
+   }
 
 
 .fab.fa-youtube:hover {
@@ -182,3 +309,8 @@ ul {
 ul li {
     margin-left: 10px;
 }
+
+
+
+
+

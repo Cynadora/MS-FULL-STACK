@@ -3,11 +3,15 @@
 include('DAO.php');
 include_once "Template/header.php";
 ?>
-<form action="categorie.php" method="GET" class="search-form">
+
+
+
+<div class="img1">
+    <form action="categorie.php" method="GET" class="search-form">
     <input type="text" name="recherche" placeholder="Recherche..." />
     <input type="submit" value="Search" />
 </form>
-<div class="img1"></div>
+</div>
 <br>
 <h3>CATEGORIES</h3>
 <div class="row g-3">
@@ -66,3 +70,5 @@ include_once "Template/header.php";
     <?php
     include_once "Template/footer.php";
     ?>
+
+

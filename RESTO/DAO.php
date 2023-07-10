@@ -85,27 +85,54 @@ function plat_par_categorie($offset, $limit, $id)
     return $temp->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function get_plat_id($plat_id)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $requete = "SELECT plat.*
+    FROM plat
+    JOIN categorie ON plat.id_categorie = categorie.id
+    WHERE plat.id = :plat_id";
+    $temp = $db->prepare($requete);
+    $temp->bindValue(':plat_id', $plat_id, PDO::PARAM_INT);
+    $temp->execute();
+
+    return $temp->fetch(PDO::FETCH_ASSOC);
+}
 
 
 
+function get_plat_all()
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
 
-//function passer_commande()
-//{
-    //$database = new Database();
-    //$db = $database->ConnexionBase();
+    $requete = "SELECT *
+    FROM plat";
 
-    // Requête pour obtenir les plats 
-    //$requetePlats = "
-    //SELECT plat.libelle, plat.image, plat.description, plat.prix
-    //FROM plat
-    //LIMIT 6";
+    $temp = $db->prepare($requete);
+    $temp->execute();
+
+    return $temp->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
-    //$temp = $db->prepare($requetePlats);
-    //$temp->execute();
+function insert_commande($id_plat, $quantite, $total, $etat, $nom_client, $telephone_client, $email_client, $adresse_client)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
 
-    //return $temp->fetchAll(PDO::FETCH_ASSOC);
-
-   // Appel de la fonction pour récupérer les plats à afficher
-    //$temp = get_plats(); 
-//}
+    $sql = "INSERT INTO commande (id_plat, quantite, total, date_commande, etat, nom_client, telephone_client, email_client, adresse_client) VALUES (:id_plat, :quantite, :total, NOW(), :etat, :nom_client, :telephone_client, :email_client, :adresse_client)";
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":id_plat", $id_plat);
+    $requete->bindValue(":quantite", $quantite);
+    $requete->bindValue(":total", $total);
+    $requete->bindValue(":etat", $etat);
+    $requete->bindValue(":nom_client", $nom_client);
+    $requete->bindValue(":telephone_client", $telephone_client);
+    $requete->bindValue(":email_client", $email_client);
+    $requete->bindValue(":adresse_client", $adresse_client);
+    $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}

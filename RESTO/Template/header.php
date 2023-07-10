@@ -15,6 +15,7 @@
 <body>
 
 
+
   <nav class="navbar navbar-expand-md navbar couleurnav">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +33,17 @@
           <li class="nav-item">
             <a class="nav-link" href="categorie.php">Catégorie</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="plats.php">Plats</a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
           </li>
         </ul>
       </div>

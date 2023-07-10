@@ -36,29 +36,28 @@ $categories = categorie_active($offset, $limit);
 
 ?>
 <div class="container">
-    <div class="row">
+    <div class="row mb-5">
         <?php
         if (!empty($categories)) {
             foreach ($categories as $categorie) :
         ?>
                 <div class="col-4">
                     <div class="d-flex justify-content-center">
-                        <a class="plat1 position-relative z-2" href="plat.php?id=<?= $categorie['id'] ?>">
+                        <a class="plat1 position-relative z-2" href="platcat.php?id=<?= $categorie['id'] ?>">
                             <?= $categorie['libelle'] ?>
                         </a>
                     </div>
-                    <img src="src/img/category/<?= $categorie['image'] ?>" alt="Categorie <?= $categorie['libelle'] ?> <?= $categorie['active'] ?>" class="img2">
+                    <img src="src/img/category/<?= $categorie['image'] ?>" alt="Categorie <?= $categorie['libelle'] ?> 
+                    <?= $categorie['active'] ?>" class="img2">
                 </div>
-
-
             <?php endforeach; ?>
-
     </div>
-    <div class="col-12">
-        <div class="row">
-            <a class="btn-nav col-6 button" href="?page=<?= $page - 1 ?>">Précédent</a>
-            <a class="btn-nav col-6 button" href="?page=<?= $page + 1 ?>">Suivant</a>
-        </div>
+
+</div>
+<div class="col-12">
+    <div class="row">
+        <a class="btn-nav col-6 button" href="?page=<?= $page - 1 ?>">Précédent</a>
+        <a class="btn-nav col-6 button" href="?page=<?= $page + 1 ?>">Suivant</a>
     </div>
 </div>
 </div>
