@@ -136,3 +136,61 @@ function insert_commande($id_plat, $quantite, $total, $etat, $nom_client, $telep
     $requete->execute();
     return $requete->fetch(PDO::FETCH_ASSOC);
 }
+
+
+function login_users($identifiant)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $sql = "SELECT *
+            FROM utilisateur
+            WHERE email = :identifiant";
+
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":identifiant", $identifiant);
+    $requete->execute();
+
+    $user = $requete->fetch(PDO::FETCH_ASSOC);
+
+    return $user;
+}
+
+
+function get_categorie_recherche($resultat)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $requete = $db->prepare
+    ("SELECT *
+            FROM categorie
+            WHERE libelle like :resultat ;");
+
+    $requete->bindValue(":resultat", "%$resultat%");
+    $requete->execute();
+
+    $resultatcat = $requete->fetchAll();
+
+    return $resultatcat;
+}
+
+
+function get_plat_recherche($resultat)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+    $requete = $db->prepare
+    ("SELECT *
+            FROM plat
+            WHERE libelle like :resultat ;");    
+
+ 
+    $requete->bindValue(":resultat", "%$resultat%");
+    $requete->execute();
+
+    $resultatplat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultatplat;
+}
+

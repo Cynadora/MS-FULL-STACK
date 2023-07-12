@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // on importe le contenu du fichier "DAO.php"
 include('DAO.php');
 include_once "Template/header.php";
@@ -26,40 +28,46 @@ if ($plat_id) {
                 <h2 class="text-center">Contact</h2>
             </div>
 
-      
-
- <div class="container commandes-form justify-content-center p-3">
-    <div class="row">
-        <div class="fondplat shadow col-12">
 
 
-            <form action="script_contact.php" id="formulaire" method="post" enctype="multipart/form-data">
-    
-                <div><input name="nom" type="text" class="form-control my-2" placeholder="Nom" required></div>
-                <div><input name="prenom" type="text" class="form-control my-2" placeholder="prénom" required></div>
-                <div><input name="email" type="email" class="form-control my-2" placeholder="Adresse e-mail" required></div>
-                <div><input name="telephone" type="text" class="form-control my-2" placeholder="Numéro de téléphone" required></div>
-                <div><textarea name="demande" class="form-control my-2" placeholder="Votre demande" rows="5" required></textarea></div>
+            <div class="container commandes-form justify-content-center p-3">
+                <div class="row">
+                    <div class="fondplat shadow col-12">
 
-                <div><button class="btn btn-dark my-2 w-100" type="submit">Envoyer</button></div>
 
-                
+                        <form action="script_contact.php" id="formulaire" method="post" enctype="multipart/form-data">
 
-            </form>
-            <hr class="text-dark">
-            <div class="text-left">
-                <span class="text-white">© Sylvie(); 2023</span>
+                            <div><input name="nom" type="text" class="form-control my-2" placeholder="Nom" required></div>
+                            <div><input name="prenom" type="text" class="form-control my-2" placeholder="prénom" required></div>
+                            <div><input name="email" type="email" class="form-control my-2" placeholder="Adresse e-mail" required></div>
+                            <div><input name="telephone" type="text" class="form-control my-2" placeholder="Numéro de téléphone" required></div>
+                            <div><textarea name="demande" class="form-control my-2" placeholder="Votre demande" rows="5" required></textarea></div>
 
-                <br><br>
+                            <div><button class="btn btn-dark my-2 w-100" type="submit">Envoyer</button></div>
 
-                <ul class="d-flex flex-row">
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-youtube" id="yy"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                </ul>
 
+
+                        </form>
+                        <hr class="text-dark">
+                        <div class="text-left">
+                            <span class="text-white">© Sylvie(); 2023</span>
+
+                            <br><br>
+
+                            <ul class="d-flex flex-row">
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube" id="yy"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+
+            <?php include_once "Template/footer.php"; ?>
+
+            </body>
+
+            </html>

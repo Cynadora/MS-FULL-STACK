@@ -1,4 +1,5 @@
 <?php
+session_start();
 // on importe le contenu du fichier "DAO.php"
 include('DAO.php');
 include_once "Template/header.php";

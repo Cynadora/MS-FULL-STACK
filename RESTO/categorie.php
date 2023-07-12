@@ -1,11 +1,12 @@
 <?php
+session_start();
+
 // on importe le contenu du fichier "DAO.php"
 include('DAO.php');
 include_once "Template/header.php";
 ?>
-<h3>CATEGORIE ACTIVE</h3>
 <div class="img1"></div>
-
+<h3>CATEGORIE ACTIVE</h3>
 <?php
 
 /*$page= '';
@@ -36,7 +37,7 @@ $categories = categorie_active($offset, $limit);
 
 ?>
 <div class="container">
-    <div class="row mb-5">
+    <div class="row w-100 mb-5">
         <?php
         if (!empty($categories)) {
             foreach ($categories as $categorie) :

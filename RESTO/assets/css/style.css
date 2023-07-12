@@ -15,7 +15,7 @@ body {
 
 /*Couleur police de la navbar*/
 .nav-link {
-    color: aliceblue;
+    color: rgb(42, 241, 15);
 }
 
 /*Hoover link/////////////////////////// de la navbar*/
@@ -57,7 +57,7 @@ h3 {
     /* Image Catégorie /Contour*/
     /*float: left;*/
     box-shadow: -4px 4px 0 1px rgb(145, 147, 145);
-
+    object-fit: cover;
 }
 
 .img2:hover {
@@ -76,6 +76,7 @@ h3 {
     /* Image Plats /Contour*/
     float: right;
     box-shadow: -4px 4px 0 1px rgb(68, 70, 70);
+    object-fit: cover;
 
 }
 
@@ -84,6 +85,9 @@ h3 {
     transform: scale(1.05);
     transition: 0.06s ease-in-out;
 }
+
+
+
 
 /* Bouton Catégorie (Salade/Sandwich...)*/
 .plat1 {
@@ -129,13 +133,25 @@ h3 {
     border: 1px solid black;
     padding: 30px;
     border-radius: 20px;
+}
 
+.fond-connexion {
+    padding: 30px;
+    border-radius: 20px;
 }
 
 .commandes-form {
     background-color: #2cced2;
     margin-top: 10px;
 }
+
+/* Background login */
+.commandes-form1 {
+    background-color: rgba(115, 72, 42, 1);
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
 
 .commander {
     /*background-color: #524A3A;*/
@@ -157,6 +173,9 @@ h3 {
     border-radius: 8px;
     height: 70;
 }
+
+
+
 
 
 /* Formulaire page commande */
@@ -183,10 +202,16 @@ h3 {
     border-radius: 20px;
 }
 
+
+/* Couleur texte du LOGIN */
+h2 {
+    color: whitesmoke;
+}
+
 #premierTrait {
     height: 1px;
     width: 75%;
-    background-color: #f008b6;
+    background-color: #b0e98a;
     margin: 60px auto;
 }
 
@@ -196,7 +221,7 @@ h3 {
     background-color: #da0aed;
 }
 
-#troisiemeTrait{
+#troisiemeTrait {
     height: 1px;
     width: 75%;
     background-color: #da0aed;
@@ -282,7 +307,7 @@ i {
 .btn-nav:hover i {
     color: aliceblue;
     animation: bounce 0.5s ease-in-out;
-   }
+}
 
 
 .fab.fa-youtube:hover {
@@ -310,7 +335,8 @@ ul li {
     margin-left: 10px;
 }
 
-
-
-
-
+.login-fond {
+    background-image: url("../../src/img/bg3.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,6 +1,14 @@
+<?php
+
+if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
+  $connecte = true;
+} else {
+  $connecte = false;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +21,6 @@
 </head>
 
 <body>
-
-
-
   <nav class="navbar navbar-expand-md navbar couleurnav">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +31,7 @@
           <li class="nav-item">
             <a class="navbar-brand"></a>
             <img class="logo1" src="src/img/the_district_brand/logo_transparent.png" alt="Logo" title="thedistrict">
+            
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php">Accueil</a>
@@ -42,16 +48,31 @@
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
-          </li>
+          <?php
+          if ($connecte) {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">Se déconnecter</a>
+            </li>
+            <li class="nav-item">
+              <span>Bonjour   <?= $_SESSION['nom_prenom'] ?> : <?= $_SESSION['email'] ?></span>
+            </li>
+          <?php
+          } else {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php">Se connecter</a>
+            </li>
+          <?php
+          }
+          ?>
         </ul>
       </div>
     </div>
   </nav>
 
 
-
+  <!-- A mettre dans le footer -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
