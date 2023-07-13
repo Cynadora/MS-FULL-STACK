@@ -8,13 +8,14 @@ include_once "Template/header.php";
 
 
 <div class="img1">
+
     <form action="recherche.php" method="GET" class="search-form">
-        <input type="text" name="resultat" placeholder="Recherche..."  />
+        <input type="text" name="resultat" placeholder="Recherche..." />
         <input type="submit" value="Search" />
     </form>
 </div>
 
-<h3>CATEGORIES</h3>
+<h3 class="animate__animated animate__backInRight">CATEGORIES</h3>
 <div class="container">
 
     <div class="row g-3">
@@ -42,7 +43,7 @@ include_once "Template/header.php";
 
         ?>
         <br>
-        <h3>LES PLATS EN VOGUE</h3>
+        <h3 class="animate__animated animate__backInRight">LES PLATS EN VOGUE</h3>
 
         <div class="row g-3">
             <?php

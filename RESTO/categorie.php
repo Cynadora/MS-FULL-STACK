@@ -39,7 +39,9 @@ $categories = categorie_active($offset, $limit);
 <div class="container">
     <div class="row w-100 mb-5">
         <?php
+
         if (!empty($categories)) {
+            
             foreach ($categories as $categorie) :
         ?>
                 <div class="col-4">

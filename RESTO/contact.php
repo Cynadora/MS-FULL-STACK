@@ -25,7 +25,7 @@ if ($plat_id) {
     <div class="d-flex justify-content-center">
         <div class="w-50 w-md-50">
             <div>
-                <h2 class="text-center">Contact</h2>
+                <h2 class="contact-text text-center">Contact</h2>
             </div>
 
 
@@ -66,7 +66,7 @@ if ($plat_id) {
                 </div>
             </div>
 
-            <?php include_once "Template/footer.php"; ?>
+           
 
             </body>
 

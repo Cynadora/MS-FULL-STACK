@@ -47,7 +47,8 @@ include_once "Template/header.php";
                                 <div><input class="btn btn-dark my-2 w-100" type="submit" value="Connexion"></div>
                                 <div><input class="btn btn-dark my-2 w-100" type="submit" value="Retour"></div>
 
-                                <!-- <a href="index.php" class="btn btn-success">Retour</a> -->
+                               
+
 
                         </div>
                         </form>

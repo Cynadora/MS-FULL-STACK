@@ -185,7 +185,7 @@ function get_plat_recherche($resultat)
             FROM plat
             WHERE libelle like :resultat ;");    
 
- 
+//  BindValue (lier, assigner une valeur)Dans ce cas précis, ":resultat" est le nom du paramètre dans la requête et "%$resultat%" est la valeur à laquelle le paramètre sera lié. 
     $requete->bindValue(":resultat", "%$resultat%");
     $requete->execute();
 
@@ -194,3 +194,55 @@ function get_plat_recherche($resultat)
     return $resultatplat;
 }
 
+// dashbord////////////////////////////////////////////////////////////////////////////////////////
+function insertdash_categorie($id, $libelle, $image, $active)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $sql = "INSERT INTO categorie (libelle, image, active) VALUES (:libelle, :image, :active)";
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":libelle", $libelle);
+    $requete->bindValue(":image", $image);
+    $requete->bindValue(":active", $active);
+        $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}
+
+
+function updatedash_categorie($id, $libelle, $image, $etat, $active)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $sql = "UPDATE categorie (libelle, image, active) VALUES (:libelle, :image, :active)
+            WHERE categorie = ?";
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":libelle", $libelle);
+    $requete->bindValue(":image", $image);
+    $requete->bindValue(":active", $active);
+        $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}
+
+UPDATE `categorie` SET `id`='[value-1]',`libelle`='[value-2]',`image`='[value-3]',`active`='[value-4]' WHERE 1
+           
+ 
+
+function deletedash_categorie($id, $libelle, $image, $etat, $active)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $sql = "DELETE categorie (libelle, image, active) VALUES (:libelle, :image, :active)
+            WHERE categorie = 1";
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":libelle", $libelle);
+    $requete->bindValue(":image", $image);
+    $requete->bindValue(":active", $active);
+        $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+
+    
+}
+DELETE FROM `categorie` WHERE libelle =

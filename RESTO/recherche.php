@@ -24,7 +24,7 @@ $resultplat = get_plat_recherche($resultat);
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Page accueil</title>
+    <title>Page recherche</title>
 </head>
 
 <body>
@@ -33,29 +33,44 @@ $resultplat = get_plat_recherche($resultat);
 
     <div class="container my-5">
         <div class="row w-100 g-3 justify-content-center">
-            <span class="text-center">Résultats par categorie</span>
+            <span class="text-center fs-3 fw-bold">RESULTATS PAR CATEGORIE</span>
+            <?php if (!empty($resultcat)) {
+                foreach ($resultcat as $oneresultat) : ?>
+                    <div class="col-4">
+                        <div class="d-flex justify-content-center">
+                            <div class="plat1 position-relative z-2">
+                                <?= $oneresultat['libelle'] ?>
+                            </div>
+                        </div>
+                        <img src="src/img/category/<?= $oneresultat['image'] ?>" alt="<?= $oneresultat['libelle'] ?> " class="img2">
+                    </div>
+            <?php endforeach;
+            } else {
+                echo '<p class="text-center fs-4">Pas de catégories</p>';
+            }
+            ?>
 
-
-            <?php foreach ($resultcat as $oneresultat) : ?>
-                <div class="col-4">
-                    <img src="src/img/category/<?= $oneresultat['image'] ?>" alt="<?= $oneresultat['libelle'] ?> " class="img2">
-                <div class="nom-cat"><?= $oneresultat['libelle'] ?></div>
-                </div>
-            <?php endforeach; ?>
         </div>
     </div>
-
-
-
+    </div>
     <div class="container my-5">
         <div class="row w-100 g-3 justify-content-center">
-            <span class="text-center">Résultats par plat</span>
-            <?php foreach ($resultplat as $tworesultat) : ?>
+            <span class="text-center fs-3 fw-bold">RESULTATS PAR PLAT</span>
+            <?php if (!empty($resultplat)) {
+
+            foreach ($resultplat as $tworesultat) : ?>
                 <div class="col-4">
+                    <div class="d-flex justify-content-center">
+                        <div class="plat1 position-relative z-2">
+                            <?= $tworesultat['libelle'] ?>
+                        </div>
+                    </div>
                     <img src="src/img/food/<?= $tworesultat['image'] ?>" alt="<?= $tworesultat['libelle'] ?> " class="img2">
-                    <div class="nom-plat"><?= $tworesultat['libelle'] ?></div>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach;
+        } else {
+                echo '<p class="text-center fs-4 text-warning">Pas de plats</p>';
+            }
+            ?>
         </div>
-    </div>
 </body>

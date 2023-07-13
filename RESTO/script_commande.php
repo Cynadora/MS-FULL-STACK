@@ -45,5 +45,5 @@ exit;
 
 <?php
         include_once "Template/commande.php";
-
+        header('Location: index.php');
 ?>

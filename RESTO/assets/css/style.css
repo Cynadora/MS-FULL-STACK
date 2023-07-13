@@ -18,14 +18,6 @@ body {
     color: rgb(42, 241, 15);
 }
 
-/*Hoover link/////////////////////////// de la navbar*/
-.nav-link:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
-    transition: 0.06s ease-in-out;
-}
-
-
 .logo1 {
     height: 100px;
 }
@@ -186,6 +178,7 @@ h3 {
     border: none;
     padding: 15px 10px;
     margin: 5px 0;
+
     font-size: 1.2em;
     border-radius: 7px;
 }
@@ -340,3 +333,8 @@ ul li {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.contact-text {
+    color: #95E0FA;
+}
+
