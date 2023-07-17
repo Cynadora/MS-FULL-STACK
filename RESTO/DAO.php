@@ -225,7 +225,7 @@ function updatedash_categorie($id, $libelle, $image, $etat, $active)
     return $requete->fetch(PDO::FETCH_ASSOC);
 }
 
-UPDATE `categorie` SET `id`='[value-1]',`libelle`='[value-2]',`image`='[value-3]',`active`='[value-4]' WHERE 1
+
            
  
 
@@ -245,4 +245,3 @@ function deletedash_categorie($id, $libelle, $image, $etat, $active)
 
     
 }
-DELETE FROM `categorie` WHERE libelle =

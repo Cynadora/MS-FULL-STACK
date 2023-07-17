@@ -5,18 +5,27 @@ session_start();
 include('DAO.php');
 include_once "Template/header.php";
 
-// Recup id plat
-$plat_id = isset($_GET['id']) ? $_GET['id'] : null;
+//Recup id plat
+//Isset vérifie si id est définie et vérifie si "id" est présent dans l'url si c le cas, il attribut sa valeur à la variable "$plat"/ sinon $plat_id est définie 
+//sur "null"/ 
 
-//Autre manière d'écrire le code (=code recup id plat)
-// if(isset($_GET['id'])){
-//     $plat_id = $_GET['id'];
-// }else{
-//     $plat_id=null;
-// }
-// recup données plat
+// if/else raccourci
+// $plat_id = isset($_GET['id']) ? $_GET['id'] : null;
+
+//Récupération de l'id du plat
+if (isset($_GET['id'])) {
+//get id  le met dans plat id
+    $plat_id = $_GET['id'];
+} else {
+    //si récupère pas id il met l'id à null/ensuite utiliser 
+    $plat_id = null;
+}
+
+// s'il n'y a pas de plat
 $plat = null;
+//si on récupère un id du plat
 if ($plat_id) {
+    
     $plat = get_plat_id($plat_id);
     //var_dump($plat);
 }
@@ -62,18 +71,13 @@ if ($plat_id) {
                         <div><textarea name="adresse" class="form-control my-2" placeholder="Votre adresse" rows="5" required></textarea></div>
 
                         <div><input class="btn btn-dark my-2 w-100" type="submit" value="Envoyer"></div>
-
                     </form>
                 </div>
             </div>
         </div>
-
-
-        
     </div>
 </div>
 </div>
-
 <?php
 
 include_once "Template/footer.php";

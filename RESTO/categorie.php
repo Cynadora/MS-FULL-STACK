@@ -9,16 +9,12 @@ include_once "Template/header.php";
 <h3>CATEGORIE ACTIVE</h3>
 <?php
 
-/*$page= '';
-/*S'il y a $page alors on rentre dans la fonction      
-if (isset($page)){ ?>
-<?php echo $page; ?>
-
-}*/
-
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
+
+ //Si la valeur de 'page' est <=0 ou si ce n'est pas un nombbre entier   
     if ($page <= 0 || !ctype_digit($page)) {
+   //Alors la valeur de '$page' est définie à 1      
         $page = 1;
     }
 } else {
@@ -29,17 +25,14 @@ $limit = 6;
 $offset = ($page - 1) * $limit;
 
 
-
+// Appel de la fonction (en écrivant son nom) pour obtenir les catégories active/récupère les catégories active à afficher/
 $categories = categorie_active($offset, $limit);
-
-/* Vérifie si la variable '$categories' n'est pas vide Si la variable n'est pas vide, le  code à l'intérieur des accolades sera exécuté */
-
 
 ?>
 <div class="container">
     <div class="row w-100 mb-5">
         <?php
-
+/* Vérifie si la variable '$categories' n'est pas vide Si la variable n'est pas vide, le  code à l'intérieur des accolades sera exécuté */
         if (!empty($categories)) {
             
             foreach ($categories as $categorie) :

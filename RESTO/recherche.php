@@ -5,12 +5,24 @@ session_start();
 include('DAO.php');
 include_once "Template/header.php";
 
-$resultat = isset($_GET['resultat']) ? $_GET['resultat'] : null;
+// if/else raccourci
+//$resultat = isset($_GET['resultat']) ? $_GET['resultat'] : null;
 
+//Récupération du resultat
+if (isset($_GET['resultat'])) {
+    //$_GET['resultat']; resultat le met dans $resultat
+        $resultat = $_GET['resultat'];
+    } else {
+        //si  on ne récupère pas le resultat il met le résultat à null/
+        $resultat = null;
+    }
+
+
+
+/// Appel de la fonction (en écrivant son nom) pour obtenir les catégories/récupère les catégories à afficher/
 $resultcat = get_categorie_recherche($resultat);
 
 $resultplat = get_plat_recherche($resultat);
-
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +40,6 @@ $resultplat = get_plat_recherche($resultat);
 </head>
 
 <body>
-
-
-
     <div class="container my-5">
         <div class="row w-100 g-3 justify-content-center">
             <span class="text-center fs-3 fw-bold">RESULTATS PAR CATEGORIE</span>

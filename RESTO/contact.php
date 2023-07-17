@@ -8,27 +8,12 @@ include_once "Template/header.php";
 
 <div class="img1"></div>
 
-<?php
-// Recup id plat
-$plat_id = isset($_GET['id']) ? $_GET['id'] : null;
-
-// recup données plat
-$plat = null;
-if ($plat_id) {
-    $plat = get_plat_id($plat_id);
-    //var_dump($plat);
-}
-?>
-
-
 <div class="col-12">
     <div class="d-flex justify-content-center">
         <div class="w-50 w-md-50">
             <div>
                 <h2 class="contact-text text-center">Contact</h2>
             </div>
-
-
 
             <div class="container commandes-form justify-content-center p-3">
                 <div class="row">
@@ -66,7 +51,7 @@ if ($plat_id) {
                 </div>
             </div>
 
-           
+
 
             </body>
 
