@@ -1,14 +1,14 @@
+<!-- Formulaire de connexion qui permet aux utilisateurs de saisir leur adresse email et leur mot de passe. lorsque le formulaire est soumis, les données sont envoyées
+dans la page "script_login.php" pour être traitées -->
+
 <?php
+//Stocke les informations spécifiques à l'utilisateur et les rendent accessibles sur différentes pages du site
 session_start();
-// on importe le contenu du fichier "DAO.php"
+// on importe le contenu du fichier "DAO.php" (Data Acess Object)/utilisé pour intéragir avec la bdd et effectuer des opérations CRUD (Créate, Read, Update, Delete)
 include('DAO.php');
 include_once "Template/header.php";
 ?>
 <div class="container login-fond">
-
-    <!-- <div class="col-sm-6 col-sm-offset-3"> -->
-    <!-- <div class="panel panel-default"> -->
-    <!-- <div class="panel-body"> -->
 
     <div class="col-12">
         <div class="d-flex justify-content-center">
@@ -46,9 +46,6 @@ include_once "Template/header.php";
 
                                 <div><input class="btn btn-dark my-2 w-100" type="submit" value="Connexion"></div>
                                 <div><input class="btn btn-dark my-2 w-100" type="submit" value="Retour"></div>
-
-                               
-
 
                         </div>
                         </form>

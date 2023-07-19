@@ -12,9 +12,9 @@ include_once "Template/header.php";
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 
- //Si la valeur de 'page' est <=0 ou si ce n'est pas un nombbre entier   
+    //Si la valeur de 'page' est <=0 ou si ce n'est pas un nombre entier   
     if ($page <= 0 || !ctype_digit($page)) {
-   //Alors la valeur de '$page' est définie à 1      
+        //Alors la valeur de '$page' est définie à 1      
         $page = 1;
     }
 } else {
@@ -32,19 +32,24 @@ $categories = categorie_active($offset, $limit);
 <div class="container">
     <div class="row w-100 mb-5">
         <?php
-/* Vérifie si la variable '$categories' n'est pas vide Si la variable n'est pas vide, le  code à l'intérieur des accolades sera exécuté */
+
+// On vérifie si la variable '$categories' n'est pas vide (contient des éléments). Si '$categories' n'est pas vide, cela signifie qu'il y a des catégories à afficher.
+        // Si la variable '$categories' n'est pas vide, alors le code à l'intérieur du bloc 'if' sera exécuté.
+
         if (!empty($categories)) {
             
-            foreach ($categories as $categorie) :
+    // 'foreach' parcourt chaque élément de la variable '$categories'. 
+            // Pour chaque élément, la valeur de cet élément est assignée à la variable '$uneCategorie', et le code à l'intérieur du bloc 'foreach' est exécuté.       
+            foreach ($categories as $uneCategorie) :
         ?>
                 <div class="col-4">
                     <div class="d-flex justify-content-center">
-                        <a class="plat1 position-relative z-2" href="platcat.php?id=<?= $categorie['id'] ?>">
-                            <?= $categorie['libelle'] ?>
+                        <a class="plat1 position-relative z-2" href="platcat.php?id=<?= $uneCategorie['id'] ?>">
+                            <?= $uneCategorie['libelle'] ?>
                         </a>
                     </div>
-                    <img src="src/img/category/<?= $categorie['image'] ?>" alt="Categorie <?= $categorie['libelle'] ?> 
-                    <?= $categorie['active'] ?>" class="img2">
+                    <img src="src/img/category/<?= $uneCategorie['image'] ?>" alt="Categorie <?= $uneCategorie['libelle'] ?> 
+                    <?= $uneCategorie['active'] ?>" class="img2">
                 </div>
             <?php endforeach; ?>
     </div>
@@ -61,5 +66,4 @@ $categories = categorie_active($offset, $limit);
 <?php
         }
         include_once "Template/footer.php";
-
 ?>

@@ -9,15 +9,13 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -36,7 +34,7 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
           <li class="nav-item">
             <a class="navbar-brand"></a>
             <img class="logo1" src="src/img/the_district_brand/logo_transparent.png" alt="Logo" title="thedistrict">
-            
+
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php">Accueil</a>
@@ -57,7 +55,7 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
 
           <!-- Bouton admin/////////////////////////////// -->
           <li class="nav-item">
-            <a class="nav-link" href="admin.php">Admin</a>
+            <a class="nav-link" href="dashboard.php">Dashboard</a>
           </li>
 
 
@@ -71,7 +69,7 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
               <a class="nav-link" href="logout.php">Se déconnecter</a>
             </li>
             <li class="nav-item">
-              <span>Bonjour 
+              <span>Bonjour
                 <!-- <?= $_SESSION['nom_prenom'] ?> : <?= $_SESSION['email'] ?> -->
               </span>
             </li>

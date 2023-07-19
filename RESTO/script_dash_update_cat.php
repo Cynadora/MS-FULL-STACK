@@ -7,20 +7,19 @@ include_once "Template/header.php";
 
 
 // Vérifie si la méthode de la requête est POST avant l'éxécution des instructions
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// }
 
-    // Récupération des données :
+// Récupération des données :
 
-    $id = (isset($_POST['id']) && $_POST['id'] != "") ? $_POST['id'] : Null;
-    $libelle = (isset($_POST['libelle']) && $_POST['libelle'] != "") ? $_POST['libelle'] : Null;
-    $image = (isset($_POST['image']) && $_POST['image'] != "") ? $_POST['image'] : Null;
-    $active = (isset($_POST['active']) && $_POST['active'] != "") ? $_POST['active'] : Null;
+$id = (isset($_POST['id']) && $_POST['id'] != "") ? $_POST['id'] : Null;
+$libelle = (isset($_POST['libelle']) && $_POST['libelle'] != "") ? $_POST['libelle'] : Null;
+$image = (isset($_POST['image']) && $_POST['image'] != "") ? $_POST['image'] : Null;
+$active = (isset($_POST['active']) && $_POST['active'] != "") ? $_POST['active'] : Null;
 
 // En cas d'erreur, on renvoie vers le formulaire
 if ($libelle == Null || $image == Null || $active == Null) {
     header("Location: formdash.php?id=" . $id);
-    exit;
-}
 
     // Gestion de l'upload de l'image
     $filename = null;
@@ -61,33 +60,29 @@ if ($libelle == Null || $image == Null || $active == Null) {
         echo "Erreur: " . $_FILES["image"]["error"];
     }
     
-    try {
-     //Préparer la requête  
-     
-     $requete = $db->prepare("INSERT INTO categorie (id, libelle, image, active) VALUES (:id, :libelle, :image, :active)");
-        $requete = $db->prepare();
-//bindValue pour connecter les variable php à leur paramètre sql
-        $requete->bindValue(":id", $id);  
-        $requete->bindValue(":libelle", $libelle);
-        $requete->bindValue(":image", $image);
-        $requete->bindValue(":active", $active);
-     //Exécution de la requête     
-        $requete->execute();
-        echo "<p>L'ajout a bien été effectué !</p>";
 
+try {
+    $db = $database->ConnexionBase();
+    $requete = $db->prepare("UPDATE categorie (id, libelle, image, active) VALUES (:id, :libelle, :image, :active)");
 
-        //code susceptible de générer une exception/  
-    } catch (Exception $e) {
-        //Message d'erreur avec le détail de l'erreur 
-        echo "Erreur : " . $e->getMessage() . "<br>";
-        /////////////echo "Erreur : " . $e->errorInfo()[2] . "<br>";
-        //On termine le script en utilisant la fonction "die()" pour arrêter l'exécution 
-        die("Fin du script (script_dash_ajout_cat.php)");
-    }
+    $requete->bindValue(":id", $id);
+    $requete->bindValue(":libelle", $libelle);
+    $requete->bindValue(":image", $image);
+    $requete->bindValue(":active", $active);
+    $requete->execute();
+    echo "<p>La mise à jour a bien été effectué !</p>";
 
-    /////////// Si OK: redirection vers la page index.php/ ou redirection vers la page des disques
-    header("Location: index.php");
-    exit;
+    //code susceptible de générer une exception/  
+} catch (Exception $e) {
+    //Message d'erreur avec le détail de l'erreur   
+    echo "Erreur : " . $requete->errorInfo()[2] . "<br>";
+    //On termine le script en utilisant la fonction "die()" pour arrêter l'exécution 
+    die("Fin du script (script_dash_update_cat.php)");
 }
+
+/////////// Si OK: redirection vers la page index.php/ 
+header("Location: index.php");
+exit;
+
 
 ?>

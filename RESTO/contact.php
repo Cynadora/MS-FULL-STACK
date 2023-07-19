@@ -19,7 +19,9 @@ include_once "Template/header.php";
                 <div class="row">
                     <div class="fondplat shadow col-12">
 
-
+                    <!-- Lorsque le formulaire de contact est soumis, les données seront envoyées à la page "script_contact.php" pour être traitées
+ Les données du formulaire seront envoyées via la méthode "POST" seront transmises de manière invisible 
+ enctype="multipart/form-data indique au navigateur comment encoder les données du formulaire lors de leur envoi au serveur -->
                         <form action="script_contact.php" id="formulaire" method="post" enctype="multipart/form-data">
 
                             <div><input name="nom" type="text" class="form-control my-2" placeholder="Nom" required></div>

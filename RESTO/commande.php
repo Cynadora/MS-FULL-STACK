@@ -6,26 +6,28 @@ include('DAO.php');
 include_once "Template/header.php";
 
 //Recup id plat
-//Isset vérifie si id est définie et vérifie si "id" est présent dans l'url si c le cas, il attribut sa valeur à la variable "$plat"/ sinon $plat_id est définie 
+//Isset vérifie si id est définie et vérifie si "id" est présent dans l'url si c le cas, il attribue sa valeur à la variable "$plat"/ sinon $plat_id est définie 
 //sur "null"/ 
 
-// if/else raccourci
-// $plat_id = isset($_GET['id']) ? $_GET['id'] : null;
+// if/else raccourci/Récupération des données
+//Isset vérifie si id est définie et/ vérifie si "id" est présent dans l'url/ si c le cas, il attribue sa valeur à la variable "$plat"/ sinon $plat_id est définie 
+//sur "null"/
+ $plat_id = isset($_GET['id']) ? $_GET['id'] : null;
 
-//Récupération de l'id du plat
-if (isset($_GET['id'])) {
-//get id  le met dans plat id
-    $plat_id = $_GET['id'];
-} else {
-    //si récupère pas id il met l'id à null/ensuite utiliser 
-    $plat_id = null;
-}
+// //Récupération l'id du plat
+// if (isset($_GET['id'])) {
+// //get id  le met dans plat id
+//     $plat_id = $_GET['id'];
+// } else {
+//     //si on ne récupère pas l'id il met l'id à null/ 
+//     $plat_id = null;
+// }
 
 // s'il n'y a pas de plat
 $plat = null;
 //si on récupère un id du plat
 if ($plat_id) {
-    
+   /// Appel de la fonction (en écrivant son nom) pour obtenir id des plats/récupère les plats à afficher/ 
     $plat = get_plat_id($plat_id);
     //var_dump($plat);
 }

@@ -85,6 +85,20 @@ function plat_par_categorie($offset, $limit, $id)
     return $temp->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function get_categorie_all()
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $requete = "SELECT *
+    FROM categorie";
+
+    $temp = $db->prepare($requete);
+    $temp->execute();
+
+    return $temp->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function get_plat_id($plat_id)
 {
     $database = new Database();
@@ -162,8 +176,7 @@ function get_categorie_recherche($resultat)
     $database = new Database();
     $db = $database->ConnexionBase();
 
-    $requete = $db->prepare
-    ("SELECT *
+    $requete = $db->prepare("SELECT *
             FROM categorie
             WHERE libelle like :resultat ;");
 
@@ -180,12 +193,11 @@ function get_plat_recherche($resultat)
 {
     $database = new Database();
     $db = $database->ConnexionBase();
-    $requete = $db->prepare
-    ("SELECT *
+    $requete = $db->prepare("SELECT *
             FROM plat
-            WHERE libelle like :resultat ;");    
+            WHERE libelle like :resultat ;");
 
-//  BindValue (lier, assigner une valeur)Dans ce cas précis, ":resultat" est le nom du paramètre dans la requête et "%$resultat%" est la valeur à laquelle le paramètre sera lié. 
+    //  BindValue (lier, assigner une valeur)Dans ce cas précis, ":resultat" est le nom du paramètre dans la requête et "%$resultat%" est la valeur à laquelle le paramètre sera lié. 
     $requete->bindValue(":resultat", "%$resultat%");
     $requete->execute();
 
@@ -194,54 +206,53 @@ function get_plat_recherche($resultat)
     return $resultatplat;
 }
 
-// dashbord////////////////////////////////////////////////////////////////////////////////////////
+// dashbord//////////
 function insertdash_categorie($id, $libelle, $image, $active)
 {
     $database = new Database();
     $db = $database->ConnexionBase();
 
-    $sql = "INSERT INTO categorie (libelle, image, active) VALUES (:libelle, :image, :active)";
+    $sql = "INSERT INTO categorie (id, libelle, image, active) VALUES (:id, :libelle, :image, :active)";
     $requete = $db->prepare($sql);
+    $requete->bindValue(":id", $id);
     $requete->bindValue(":libelle", $libelle);
     $requete->bindValue(":image", $image);
     $requete->bindValue(":active", $active);
-        $requete->execute();
+    $requete->execute();
     return $requete->fetch(PDO::FETCH_ASSOC);
 }
 
 
-function updatedash_categorie($id, $libelle, $image, $etat, $active)
+function updatedash_categorie($id, $libelle, $image, $active)
 {
     $database = new Database();
     $db = $database->ConnexionBase();
 
-    $sql = "UPDATE categorie (libelle, image, active) VALUES (:libelle, :image, :active)
+    $sql = "UPDATE categorie (id, libelle, image, active) VALUES (:id, :libelle, :image, :active)
             WHERE categorie = ?";
     $requete = $db->prepare($sql);
+    $requete->bindValue(":id", $id);
     $requete->bindValue(":libelle", $libelle);
     $requete->bindValue(":image", $image);
     $requete->bindValue(":active", $active);
-        $requete->execute();
+    $requete->execute();
     return $requete->fetch(PDO::FETCH_ASSOC);
 }
 
 
-           
- 
-
-function deletedash_categorie($id, $libelle, $image, $etat, $active)
+function deletedash_categorie($id, $libelle, $image, $active)
 {
     $database = new Database();
     $db = $database->ConnexionBase();
 
-    $sql = "DELETE categorie (libelle, image, active) VALUES (:libelle, :image, :active)
+    $sql = "DELETE categorie (id, libelle, image, active) VALUES (:id, :libelle, :image, :active)
             WHERE categorie = 1";
     $requete = $db->prepare($sql);
+    //bindValue pour connecter les variable php à leur paramètre sql
+    $requete->bindValue(":id", $id);
     $requete->bindValue(":libelle", $libelle);
     $requete->bindValue(":image", $image);
     $requete->bindValue(":active", $active);
-        $requete->execute();
+    $requete->execute();
     return $requete->fetch(PDO::FETCH_ASSOC);
-
-    
 }
