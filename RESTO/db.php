@@ -1,4 +1,5 @@
 <?php
+//Utiliser pour se connecter à la bdd
 class Database
 {
     private $servername = "localhost";

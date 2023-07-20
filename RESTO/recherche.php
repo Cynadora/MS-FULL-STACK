@@ -6,16 +6,16 @@ include('DAO.php');
 include_once "Template/header.php";
 
 // if/else raccourci
-//$resultat = isset($_GET['resultat']) ? $_GET['resultat'] : null;
+$resultat = isset($_GET['resultat']) ? $_GET['resultat'] : null;
 
 //Récupération du resultat
-if (isset($_GET['resultat'])) {
-    //$_GET['resultat']; resultat le met dans $resultat
-        $resultat = $_GET['resultat'];
-    } else {
-        //si  on ne récupère pas le resultat il met le résultat à null/
-        $resultat = null;
-    }
+// if (isset($_GET['resultat'])) {
+//     //$_GET['resultat']; resultat le met dans $resultat
+//         $resultat = $_GET['resultat'];
+//     } else {
+//         //si  on ne récupère pas le resultat il met le résultat à null/
+//         $resultat = null;
+//     }
 
 
 

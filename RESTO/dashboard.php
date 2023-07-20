@@ -17,7 +17,7 @@ if (isset($_POST['modifier'])) {
     $categorie_id = $_POST['id'];
     $libelle = $_POST['libelle'];
     $image = $_POST['image'];
-    $active = isset($_POST['active']);
+    $active = $_POST['active'];
     /// Appel de la fonction (en écrivant son nom) pour obtenir les catégories/récupère les catégories à afficher/
     updatedash_categorie($id, $libelle, $image, $active);
 }
@@ -32,31 +32,34 @@ if (isset($_POST['supprimer'])) {
 
 <h1>Gestion Catégories</h1>
 <div class="tableoverflow">
-    <table class="table table-bordered">
+    <table class="table table-bordered fs-2 text-center ">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Libellé</th>
-                <th>Image</th>
-                <th>Active</th>
-                <th>Action</th>
+                <th class="bg-dark text-light">ID</th>
+                <th class="bg-dark text-light">Libellé</th>
+                <th class="bg-dark text-light">Image</th>
+                <th class="bg-dark text-light">Active</th>
+                <th class="bg-dark text-light">Action</th>
             </tr>
         </thead>
 
         <?php
         foreach ($categories as $uneCategorie) {
         ?>
-            <tr>
-                <td class="bg-info"><?php echo $uneCategorie['id']; ?></td>
-                <td class="bg-info"><?php echo $uneCategorie['libelle']; ?></td>
-                <td class="bg-info"><img src='src/img/category/<?= $uneCategorie['image'] ?>' alt='<?= $uneCategorie['image'] ?>' class="img-cat-dashboard" /></td>
-                <td class="bg-info"><?php echo $uneCategorie['active']; ?></td>
-                <td class="bg-info">
 
-                    <form action="formdash.php" id="formulaire" method="POST" enctype="multipart/form-data">
+            <tr>                    
+                <form action="formdash.php" id="formulaire" method="POST" enctype="multipart/form-data">
+
+                <td class="bg-info fs-4 "><?php echo $uneCategorie['id']; ?></td>
+                <td class="bg-info fs-4"><?php echo $uneCategorie['libelle']; ?></td>
+                <td class="bg-info fs-4"><img src='src/img/category/<?= $uneCategorie['image'] ?>' alt='<?= $uneCategorie['image'] ?>' class="img-cat-dashboard" /></td>
+                <td class="bg-info fs-4"><?php echo $uneCategorie['active']; ?></td>
+                <td class="bg-info fs-4">
+
                         <div><input class="btn btn-dark my-2 w-100" type="submit" name="modifier" value="Modifier"></div>
-                        <div><input class="btn btn-dark my-2 w-100" type="su" name="supprimer" value="Supprimer"></div>
 
+                        <a href="formdash.php" class="btn btn-dark my-2 w-100" name="supprimer">Supprimer</a>
+                       
                     </form>
                 </td>
             </tr>

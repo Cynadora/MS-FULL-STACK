@@ -256,3 +256,14 @@ function deletedash_categorie($id, $libelle, $image, $active)
     $requete->execute();
     return $requete->fetch(PDO::FETCH_ASSOC);
 }
+
+function get_categorie_id($id)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+    $sql = "SELECT * FROM `categorie` WHERE id=:id";
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":id", $id);
+    $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}
