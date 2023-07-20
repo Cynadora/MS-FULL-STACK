@@ -6,11 +6,11 @@ include('DAO.php');
 include_once "Template/header.php";
 
 //Recup id plat
-//Isset vérifie si id est définie et vérifie si "id" est présent dans l'url si c le cas, il attribue sa valeur à la variable "$plat"/ sinon $plat_id est définie 
+//Isset vérifie si id est définie si c le cas, il attribue sa valeur à la variable "$plat"/ sinon $plat_id est définie 
 //sur "null"/ 
 
 // if/else raccourci/Récupération des données
-//Isset vérifie si id est définie et/ vérifie si "id" est présent dans l'url/ si c le cas, il attribue sa valeur à la variable "$plat"/ sinon $plat_id est définie 
+//Isset vérifie si id est définie et si c le cas, il attribue sa valeur à la variable "$plat"/ sinon $plat_id est définie 
 //sur "null"/
  $plat_id = isset($_GET['id']) ? $_GET['id'] : null;
 

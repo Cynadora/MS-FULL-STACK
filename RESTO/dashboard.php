@@ -5,7 +5,7 @@ session_start();
 include('DAO.php');
 include_once "Template/header.php";
 // if/else raccourci/Récupération des résultats
-//Si categorie_id est définie dans l'url en utilisant la méthode GET si oui elle est assignée à la variable $categorie_id/ sinon la variable est définie comme null
+//Si categorie_id est définie en utilisant la méthode GET si oui elle est assignée à la variable $categorie_id/ sinon la variable est définie comme null
 // $categorie_id = isset($_GET['categorie_id']) ? $_GET['categorie_id'] : null;
 
 
