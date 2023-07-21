@@ -33,12 +33,12 @@ $categories = categorie_active($offset, $limit);
     <div class="row w-100 mb-5">
         <?php
 
-// On vérifie si la variable '$categories' n'est pas vide (contient des éléments). Si '$categories' n'est pas vide, cela signifie qu'il y a des catégories à afficher.
+        // On vérifie si la variable '$categories' n'est pas vide (contient des éléments). Si '$categories' n'est pas vide, cela signifie qu'il y a des catégories à afficher.
         // Si la variable '$categories' n'est pas vide, alors le code à l'intérieur du bloc 'if' sera exécuté.
 
         if (!empty($categories)) {
-            
-    // 'foreach' parcourt chaque élément de la variable '$categories'. 
+
+            // 'foreach' parcourt chaque élément de la variable '$categories'. 
             // Pour chaque élément, la valeur de cet élément est assignée à la variable '$uneCategorie', et le code à l'intérieur du bloc 'foreach' est exécuté.       
             foreach ($categories as $uneCategorie) :
         ?>
@@ -53,14 +53,12 @@ $categories = categorie_active($offset, $limit);
                 </div>
             <?php endforeach; ?>
     </div>
-
 </div>
 <div class="col-12">
     <div class="row">
         <a class="btn-nav col-6 button" href="?page=<?= $page - 1 ?>">Précédent</a>
         <a class="btn-nav col-6 button" href="?page=<?= $page + 1 ?>">Suivant</a>
     </div>
-</div>
 </div>
 
 <?php

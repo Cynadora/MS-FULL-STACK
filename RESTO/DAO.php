@@ -228,8 +228,8 @@ function updatedash_categorie($id, $libelle, $image, $active)
     $database = new Database();
     $db = $database->ConnexionBase();
 
-    $sql = "UPDATE categorie (id, libelle, image, active) VALUES (:id, :libelle, :image, :active)
-            WHERE categorie = ?";
+    $sql = "UPDATE categorie SET libelle = :libelle, image = :image, active = :active
+            WHERE id = :id";
     $requete = $db->prepare($sql);
     $requete->bindValue(":id", $id);
     $requete->bindValue(":libelle", $libelle);

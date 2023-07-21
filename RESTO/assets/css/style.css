@@ -133,7 +133,7 @@ h3 {
 }
 
 .commandes-form {
-    background-color: #2cced2;
+    background-color: #47dcf0;
     margin-top: 10px;
 }
 
@@ -290,9 +290,6 @@ h2 {
 
 i {
     position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
     color: rgb(8, 124, 150);
     transition: 0.2s ease-in-out;
 }

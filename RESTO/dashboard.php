@@ -47,20 +47,23 @@ if (isset($_POST['supprimer'])) {
         foreach ($categories as $uneCategorie) {
         ?>
 
-            <tr>                    
+            <tr>
                 <form action="formdash.php" id="formulaire" method="POST" enctype="multipart/form-data">
 
-                <td class="bg-info fs-4 "><?php echo $uneCategorie['id']; ?></td>
-                <td class="bg-info fs-4"><?php echo $uneCategorie['libelle']; ?></td>
-                <td class="bg-info fs-4"><img src='src/img/category/<?= $uneCategorie['image'] ?>' alt='<?= $uneCategorie['image'] ?>' class="img-cat-dashboard" /></td>
-                <td class="bg-info fs-4"><?php echo $uneCategorie['active']; ?></td>
-                <td class="bg-info fs-4">
-
-                        <div><input class="btn btn-dark my-2 w-100" type="submit" name="modifier" value="Modifier"></div>
-
-                        <a href="formdash.php" class="btn btn-dark my-2 w-100" name="supprimer">Supprimer</a>
+                    <td class="bg-info fs-4 "><?php echo $uneCategorie['id']; ?></td>
+                    <td class="bg-info fs-4"><?php echo $uneCategorie['libelle']; ?></td>
+                    <td class="bg-info fs-4">
+                        <img src='src/img/category/<?= $uneCategorie['image'] ?>' alt='<?= $uneCategorie['image'] ?>' class="img-cat-dashboard" />
                        
-                    </form>
+                    </td>
+                    
+                    <td class="bg-info fs-4"><?php echo $uneCategorie['active']; ?></td>
+                    <td class="bg-info fs-4">
+
+                        <a href="formdash.php?categorie_id=<?= $uneCategorie['id'] ?>" class="btn btn-dark my-2 w-100">Modifier</a>
+                        <a href="formdash.php" class="btn btn-dark my-2 w-100">Supprimer</a>
+
+                </form>
                 </td>
             </tr>
 
