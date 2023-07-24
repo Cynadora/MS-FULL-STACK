@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
+    // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
+    header("Location: login.php");
+    exit; 
+  }
+
 // on importe le contenu du fichier "DAO.php"
 include('DAO.php');
 include_once "Template/header.php";
@@ -35,9 +41,15 @@ if ($categorie_id) {
                 <div class="row">
                     <div class="fondplat shadow col-12">
                         <form action="script_dash_update_cat.php" id="formulaire" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="id" value="<?= $categorie['id']; ?>">
-                            <input type="hidden" name="image_cat" value="<?= $categorie['image']; ?>">
-                            <div><input name="libelle" type="text" class="form-control my-2" placeholder="libelle" required value="<?= isset($categorie['libelle']) ? $categorie['libelle'] : '' ?>"></div>
+                            <div>
+                                <input type="hidden" name="id" value="<?= $categorie['id']; ?>">
+                            </div>
+                            <div>
+                                <img class="imgDash w-25" src="src/img/category/<?= $categorie['image'] ?>" alt="Categorie <?= $categorie['libelle'] ?>">
+                            </div>
+                            <div>
+                                <input name="libelle" type="text" class="form-control my-2" placeholder="libelle" required value="<?= isset($categorie['libelle']) ? $categorie['libelle'] : '' ?>">
+                            </div>
                             <!-- Champ pour sélectionner une nouvelle image -->
                             <div class="custom-file my-2">
                                 <input type="file" class="custom-file-input" name="image">

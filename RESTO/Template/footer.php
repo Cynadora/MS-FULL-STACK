@@ -1,5 +1,6 @@
+<hr>
 <footer class="footer">
-    <div class="policy text-md-start justify-content-between h-100 flex-md-row flex-column mt-5">
+    <div class="policy text-md-start justify-content-between h-100 flex-md-row flex-column mt-2">
         <a href="../RESTO\mentionleg.php" class="mentions px-5 ">Mentions légales</a>
 
         <!-- politique de confidentialité -->

@@ -122,8 +122,9 @@ function get_plat_all()
     $database = new Database();
     $db = $database->ConnexionBase();
 
-    $requete = "SELECT *
-    FROM plat";
+    $requete = "SELECT plat.*, categorie.libelle AS 'catLibelle'
+    FROM plat
+    JOIN categorie ON categorie.id = plat.id_categorie";
 
     $temp = $db->prepare($requete);
     $temp->execute();
@@ -264,6 +265,55 @@ function get_categorie_id($id)
     $sql = "SELECT * FROM `categorie` WHERE id=:id";
     $requete = $db->prepare($sql);
     $requete->bindValue(":id", $id);
+    $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}
+
+function updatedash_plat($id, $libelle, $image, $active, $prix, $description)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $sql = "UPDATE plat SET libelle = :libelle, prix=:prix , description =:description, image = :image, active = :active
+            WHERE id = :id";
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":id", $id);
+    $requete->bindValue(":libelle", $libelle);
+    $requete->bindValue(":image", $image);
+    $requete->bindValue(":active", $active);
+    $requete->bindValue(":prix", $prix);
+    $requete->bindValue(":description", $description);
+
+    $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}
+
+
+/////////idem plat + haut///////////////////////
+function get_dash_plats_id($id)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+    $sql = "SELECT * FROM `plat` WHERE id=:id";
+    $requete = $db->prepare($sql);
+    $requete->bindValue(":id", $id);
+    $requete->execute();
+    return $requete->fetch(PDO::FETCH_ASSOC);
+}
+
+function deletedash_plat($id, $libelle, $image, $active)
+{
+    $database = new Database();
+    $db = $database->ConnexionBase();
+
+    $sql = "DELETE plat (id, libelle, image, active) VALUES (:id, :libelle, :image, :active)
+            WHERE plat = 1";
+    $requete = $db->prepare($sql);
+    //bindValue pour connecter les variable php à leur paramètre sql
+    $requete->bindValue(":id", $id);
+    $requete->bindValue(":libelle", $libelle);
+    $requete->bindValue(":image", $image);
+    $requete->bindValue(":active", $active);
     $requete->execute();
     return $requete->fetch(PDO::FETCH_ASSOC);
 }

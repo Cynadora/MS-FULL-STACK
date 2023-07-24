@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
+    // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
+    header("Location: login.php");
+    exit;
+  }
+
 // on importe le contenu du fichier "DAO.php"
 include('DAO.php');
 include_once "Template/header.php";
@@ -61,7 +67,7 @@ if (isset($_POST['supprimer'])) {
                     <td class="bg-info fs-4">
 
                         <a href="formdash.php?categorie_id=<?= $uneCategorie['id'] ?>" class="btn btn-dark my-2 w-100">Modifier</a>
-                        <a href="formdash.php" class="btn btn-dark my-2 w-100">Supprimer</a>
+                        <a href="script_dash_delete_cat.php" class="btn btn-dark my-2 w-100">Supprimer</a>
 
                 </form>
                 </td>
@@ -72,3 +78,9 @@ if (isset($_POST['supprimer'])) {
         ?>
     </table>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -22,7 +22,6 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
 
   <title>Entête</title>
 </head>
-
 <body>
   <nav class="navbar navbar-expand-md navbar couleurnav">
     <div class="container-fluid">
@@ -34,7 +33,6 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
           <li class="nav-item">
             <a class="navbar-brand"></a>
             <img class="logo1" src="src/img/the_district_brand/logo_transparent.png" alt="Logo" title="thedistrict">
-
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php">Accueil</a>
@@ -51,31 +49,38 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
 
-
-
-          <!-- Bouton admin/////////////////////////////// -->
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.php">Dashboard</a>
-          </li>
-
-
-
-
+          <?php
+          // Vérifie si l'utilisateur est connecté
+          if ($connecte) {
+          ?>
+            <!-- Bouton admin/////////////////////////////// -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dashboard
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="dashboard.php">Gestion Catégories</a></li>
+                <li><a class="dropdown-item" href="dashboard_plat.php">Gestion Plats</a></li>
+              </ul>
+            </li>
+          <?php
+          }
+          ?>
 
           <?php
           if ($connecte) {
           ?>
+            <!-- Afficher les liens et informations pour l'utilisateur connecté -->
             <li class="nav-item">
               <a class="nav-link" href="logout.php">Se déconnecter</a>
             </li>
             <li class="nav-item">
-              <span>Bonjour
-                <!-- <?= $_SESSION['nom_prenom'] ?> : <?= $_SESSION['email'] ?> -->
-              </span>
+              <span>Bonjour <?= $_SESSION['nom_prenom'] ?></span>
             </li>
           <?php
           } else {
           ?>
+            <!-- Afficher le lien pour l'utilisateur non connecté -->
             <li class="nav-item">
               <a class="nav-link" href="login.php">Se connecter</a>
             </li>
@@ -86,3 +91,6 @@ if (isset($_SESSION['nom_prenom'], $_SESSION['email'])) {
       </div>
     </div>
   </nav>
+</body>
+
+</html>
